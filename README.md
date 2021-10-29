@@ -8,3 +8,9 @@ In detail:
 - linking via a `db.js` to PgAdmin
 - setting up an apartment model
 - setting up controllers to interact.
+
+## What this Project Assumes:
+All installs are complete
+- Postgres / PgAdmin
+- Postman
+- Nodejs
