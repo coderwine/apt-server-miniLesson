@@ -3,7 +3,7 @@ require('dotenv').config(); //! #2
 const express = require('express');
 const log = console.log 
 const db = require('./db'); //! #3
-//* earmarked for controller
+const controllers = require('./controllers'); //! #5 
 
 const app = express(); 
 
@@ -18,8 +18,8 @@ app.use(express.json());
 //     log(`[SERVER]: Running on ${process.env.PORT}`);
 // }) 
 
-//* earmarked for controller
-const models = require('./models'); //! #4
+app.use('/apt', controllers.AptController) //! #5
+// const models = require('./models'); //! #4
 
 //NOTE: db.js #3
 db.authenticate()  //! #3
@@ -32,4 +32,5 @@ db.authenticate()  //! #3
     .catch(err => {
         log(`[CRASHED]: ${err}`);
     })
+
 

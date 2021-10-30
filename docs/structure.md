@@ -150,7 +150,35 @@ Before we can actually see anything, we have to call upon it.
 
 Opening up PgAdmin, we can see our table has been generated.  We can also see this being displayed within our terminal.  *notice that our table was actually titled "apartments" instead of "apartment" per our model.  This is a feature of Sequelize that is making it plural.  There is a way to turn this off per the docs, but I'll leave that up to you to find.  Just know that some naming conventions may sound odd.
 
+How about we star creating some information within our table?
+
 ## Step 5 
 **Controller-POST**
-## Step 5 
-**Controller-POST**
+Let's start this out with an assumption that we are going to need to access this file via the **index.js** file.  First, let's create an `index.js` and `apt-controller.js` file.
+
+- `controller/index.js 1-5`: We're writing this slightly different but exporting it the same way.  We are making a variable that points to whatever is being exported from the **apt-controller** file and exporting that variable.
+
+Before we start building within our controller, let's comment out the model connection in `app.js`.  We are going to access our models through our controllers.  Afterall, this is where the model is needed because our controller is where we will "interact" with our tables.  Here is where we will have our CRUD functionality.  
+
+```
+    C: Create - POST
+    R: Read - GET
+    U: Update - PUT
+    D: Delete - DELETE
+```
+
+Lets write some code inside of our controller.
+
+- `apt-controller.js 1`: We're dipping into Express and using the **Router** method that is available to us.  This allows us to point to a particular set of code.
+- `apt-controller.js 2`: We create a variable to make it easier for us to write.  
+- `apt-controller.js 3`: We establish a all the keys within the object inside of the models/index.js file and, with object destructuring, access **Apt**.    
+- `apt-controller.js 6`: Dipping into the express method, we target a post method that is available to us. We establish an enpoint that the URL will require in order for us communicate, and run the function to detail what we want to do.  In this case, we're using an **async/await** function.  It takes in a **request** and a **response** parameter.
+- `apt-controller.js 8`: Using object destructuring, we will establish 4 different variables.  This object will be the JSON within Postman when testing.  We target it with **req.body**. 
+- `apt-controller.js 9-27`: A try/catch that will respond either with our success or an error. 
+- `apt-controller.js 11-15`: per the (Sequelize Docs)[https://sequelize.org/master/manual/model-querying-basics.html], we need to detail that "shape" of our model.  The docs detail that we can build it with a key/value pair, but with ES6, we can also write it out as such; hence why we just named everything the same.  Otherwise, the detail would be [left] = model point and [right] = Postman injection.  
+- `apt-controller.js 18-21`: Per the parameter, we can utlize the response variable, **res**, and inject as a JSON the results plus a quick message.   
+- `apt-controller.js 24-226`: This is doing the same thing as our other response, but simply responding with our error instead.   
+
+Lastly, in order for this to work the way we wish; we have to export our router, inject it into our `app.js` and test it in Postman!
+
+And there it is!  We refresh PgAdmin and we can see our results.
