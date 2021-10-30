@@ -3,7 +3,7 @@ This is meant to be a learning tool.  In this project, it highlights the main co
 
 After this mini-lesson, what is completed is a CRUD functionality of an apartment unit for a fictional apartment manager.  No user sign-up or validation is used in this project.
 
-In detail:
+## In detail:
 - Creating the basic structure.
 - linking via a `db.js` to PgAdmin
 - setting up an apartment model
@@ -14,10 +14,11 @@ Instructional details can be found in **docs**:
 `structure.md`
 
 This build does have additional:
-    - GET ALL
-    - GET ONE
-    - UPDATE
-    - DELETE
+- GET ALL
+- GET ONE
+- UPDATE
+- DELETE
+
 The purpose is to challenge students in building this out afterwards.
 
 ## What this Project Assumes:
