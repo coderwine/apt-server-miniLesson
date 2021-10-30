@@ -6,6 +6,7 @@ const Apt = db.define('apartment', {
     unit: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true,
     },
     beds: {
         type: DataTypes.INTEGER,

@@ -136,6 +136,9 @@ Let's first highlight what we want to capture and what kind of data they will re
 - `apartment.js 4`: Creating a variable called `Apt` where we are connecting our db, using a define method to detail what our table looks like.  In this case, we are injecting the model (or table) name, follwoed by an object with our various sets of information.  
 - `apartment.js 6-20`: We name the model key, in this case - `unit, beds, rent, occupied`.  These keys hold various sets of information, mainly their types of data.  There is also another key/value pair here that detail whether or not this information is required.  
 
+**Why have some fields unique?**
+In our case, each address should be unique as there can't be multiples of the same unit.  This would cause major issues with mailing.  Consider the same thing with users when they register for a site.  Perhaps we would only have one email per user so we can tie it to one person.
+
 **Why would we want a field to be required?**
 What if a user were to register without a password?  Wouldn't be very secure.  If this were a table that housed all our user information and how they logged in and didn't keep their password or allowed a blank field, this could breaking for the application.
 
@@ -181,4 +184,4 @@ Lets write some code inside of our controller.
 
 Lastly, in order for this to work the way we wish; we have to export our router, inject it into our `app.js` and test it in Postman!
 
-And there it is!  We refresh PgAdmin and we can see our results.
+And there it is!  We refresh PgAdmin and we can see our results.  Let's try to add in the **GET**, **UPDATE**, and **DELETE** per the docs.  Pretty simple for the most part.  Of course, considering a much larger application, say a ToDo list, a grocery list app, or a personal library build can become so much larger.  This is but a simple representation of how we can get started building an application.
